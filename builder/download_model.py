@@ -18,4 +18,4 @@ def download_model(model_path, model_name):
     tokenizer.save_pretrained(model_path)
 
 
-download_model("models/phi2/", "microsoft/phi-2")
+download_model("models/llmlingua-2-xlm-roberta-large-meetingbank/", "microsoft/llmlingua-2-xlm-roberta-large-meetingbank")
