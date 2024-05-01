@@ -22,7 +22,7 @@ RUN python3.11 /download_model.py
 
 # Final image ->
 FROM runpod/base:0.4.0-cuda11.8.0
-COPY --from=builder /app/models/phi2/ /models/phi2/
+COPY --from=builder /app/models/llmlingua-2-xlm-roberta-large-meetingbank/ /models/llmlingua-2-xlm-roberta-large-meetingbank/
 COPY --from=builder /app/lib/python3.11/site-packages/ ./
 ADD src .
 
