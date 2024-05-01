@@ -2,7 +2,7 @@ import runpod
 from llmlingua import PromptCompressor
 import torch
 
-llm_lingua = PromptCompressor("models/phi2")
+llm_lingua = PromptCompressor("models/llmlingua-2-xlm-roberta-large-meetingbank")
 torch.set_default_device("cuda")
 
 
