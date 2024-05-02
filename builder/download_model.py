@@ -1,4 +1,4 @@
-from transformers import AutoTokenizer, AutoModelForCausalLM
+from transformers import AutoTokenizer, AutoModelForTokenClassification
 import os
 
 
@@ -9,7 +9,7 @@ def download_model(model_path, model_name):
         # Create the directory
         os.makedirs(model_path)
 
-    model = AutoModelForCausalLM.from_pretrained(
+    model = AutoModelForTokenClassification.from_pretrained(
         model_name, torch_dtype="auto", trust_remote_code=True
     )
     tokenizer = AutoTokenizer.from_pretrained(model_name, trust_remote_code=True)
@@ -18,4 +18,7 @@ def download_model(model_path, model_name):
     tokenizer.save_pretrained(model_path)
 
 
-download_model("models/llmlingua-2-xlm-roberta-large-meetingbank/", "microsoft/llmlingua-2-xlm-roberta-large-meetingbank")
+download_model(
+    "models/llmlingua-2-xlm-roberta-large-meetingbank/",
+    "microsoft/llmlingua-2-xlm-roberta-large-meetingbank",
+)
