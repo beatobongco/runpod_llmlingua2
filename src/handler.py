@@ -16,14 +16,15 @@ def handler(job):
     context = job_input.get("context", [""])
     instruction = job_input.get("instruction", "")
     question = job_input.get("question", "")
-    target_token = job_input.get("target_token", 1000)
+    rate = job_input.get("rate", 0.5)
+    force_tokens = job_input.get("force_tokens", ["\n", "?", "<SEP>"])
 
     compressed_prompt = llm_lingua.compress_prompt(
         context=context,
         instruction=instruction,
         question=question,
-        target_token=target_token,
-        rank_method="longllmlingua",
+        rate=rate,
+        force_tokens=force_tokens,
     )
     return compressed_prompt
 
