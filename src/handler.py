@@ -2,11 +2,17 @@ import runpod
 from llmlingua import PromptCompressor
 import torch
 
+
+if torch.cuda.is_available():
+    device = "cuda"
+else:
+    device = "cpu"
+
 llm_lingua = PromptCompressor(
     model_name="models/llmlingua-2-xlm-roberta-large-meetingbank",
     use_llmlingua2=True,
+    device_map=device,
 )
-torch.set_default_device("cuda")
 
 
 def handler(job):
